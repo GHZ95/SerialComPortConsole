@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)http://autcrdapts1.corpnet.auo.com/KMv2/Home/DeviceTeamHome -->
+<html style="" class=" js flexbox flexboxlegacy canvas canvastext webgl touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=11" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>COM - HIRESTA</title>
+
+   
+   <link rel="stylesheet" href="../dist/animate.css" type="text/css" />
+   <link rel="stylesheet" href="../dist/rmodal-no-bootstrap.css" type="text/css" />
+    	<script type="text/javascript" src="../dist/rmodal.js"></script>
+   	<link rel="stylesheet" type="text/css" href="../css/normalizeex.css" />
+	<link rel="stylesheet" type="text/css" href="../css/default.css" />
+	<link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Old+Standard+TT' />
+	<link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Source+Code+Pro:400,500' />
+   <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.2.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="../css/component.css" />
+    <link type="text/css"  href="../css/bootstrap.min.css" rel="stylesheet"  />
+  <script  src="../js/jquery.min.js"></script>  
+   <script  src="../css/bootstrap.min.js"></script>
+   
+   
+
+<style type="text/css">
+	*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-y: scroll;
+}
+	
+	body {
+  
+  font-family: Microsoft Yahei;
+}
+	</style>
+	<script type="text/javascript">
+        window.onload = function() {
+            var modal = new RModal(document.getElementById('modal'), {
+                beforeOpen: function(next) {
+                    console.log('beforeOpen');
+                    next();
+                }
+                , afterOpen: function() {
+                    console.log('opened');
+                }
+
+                , beforeClose: function(next) {
+                    console.log('beforeClose');
+                    next();
+                }
+                , afterClose: function() {
+                    console.log('closed');
+                }
+
+            
+            });
+
+            document.addEventListener('keydown', function(ev) {
+                modal.keydown(ev);
+            }, false);
+
+            document.getElementById('showModal').addEventListener("click", function(ev) {
+                ev.preventDefault();
+                modal.open();
+            }, false);
+
+            window.modal = modal;
+        }
+    </script>
+</head>
+<body>
+    <div class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" >COM - HIRESTA</a> <a class="navbar-brand "  href="#" id="showModal" >Connect Setting</a>
+            </div>
+            <div class="navbar-collapse collapse">
+       
+                <p class="nav navbar-text navbar-right">
+                   
+                         
+<a href="/logout"></a>                </p>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <h3> <small ></small></h3>
+       
+			<tr>
+                <th >
+                 <!--  <select style="width:100%"  > -->
+  <h3  value="oris">ComPort Console</h3><small>Found ComPort:</small><small th:text="${session.Ports}"></small>
+
+   
+                </th>
+                <section class="content bgcolor-1">
+                
+                
+               
+                
+                
+                
+                
+              	<div class="htmleaf-content">
+                		
+			<ul id="mesga"  class="sublime" >
+                	<ul class="tab">
+					  <li><span class="red">Hiresta Status:</span> <span class="green"  th:text="${session.condition}"></span>;<span class="cursor"></span></li>
+				  </ul>
+				</ul>
+				
+			
+						</div>
+                
+                
+                
+               <span class="input input--juro">
+					<input class="input__field input__field--juro" type="text" id="keys" />
+					<label class="input__label input__label--juro" for="input-28">
+						<span class="input__label-content input__label-content--juro" th:text="${session.ph}"></span>
+					</label>
+				</span>
+				</section>
+                <th>
+                   <button style="width:100%" class="btn btn-primary" onclick ="sendSerial()" >OK</button>
+                </th>
+               
+              
+            </tr>
+			
+			 <table  id="tabProduct" class="table table-striped table-condensed table-bordered">
+            <tbody>
+<tr>
+<th ><input id="allb" type="checkbox" /></th>
+<th  >CHIP ID</th>  
+<th  >RESISTANCE VALUE</th>  
+<th  >DATE TIME</th>
+
+</tr>
+</tbody>
+<tbody id="history_income_list">
+<tr  th:each="fa:${find_list}">
+<td>
+ <input name="selection" type="checkbox"   />
+</td>
+<td th:text="${fa.name}"></td>
+<td th:text="${fa.dateTime}"></td>
+<td th:text="${fa.ON}"></td>
+<td th:text="${fa.path}" >Position</td>
+<td>
+  <button style="width:100%"   class="btn btn-primary"    th:onclick="'javascript:downOne(\''+${fa.path}+'\')'"  >Download</button>
+  
+</td>  
+
+</tr>
+
+
+        </tbody></table>
+
+       
+</div>
+</div>
+<hr />
+
+
+<script type="text/javascript">
+    var websocket = null;
+
+    //判断当前浏览器是否支持WebSocket
+    if('WebSocket' in window){
+        websocket = new WebSocket("ws://localhost:8080/websocket");
+    }
+    else{
+        alert('Not support websocket')
+    }
+
+    //连接发生错误的回调方法
+    websocket.onerror = function(){
+        setMessageInnerHTML("error");
+    };
+
+    //连接成功建立的回调方法
+    websocket.onopen = function(event){
+        setMessageInnerHTML("open");
+    }
+
+    //接收到消息的回调方法
+    websocket.onmessage = function(event){
+    	
+        setMessageInnerHTML(event.data);
+    }
+
+    //连接关闭的回调方法
+    websocket.onclose = function(){
+        setMessageInnerHTML("close");
+    }
+
+    //监听窗口关闭事件，当窗口关闭时，主动去关闭websocket连接，防止连接还没断开就关闭窗口，server端会抛异常。
+    window.onbeforeunload = function(){
+        websocket.close();
+    }
+
+    //将消息显示在网页上
+    function setMessageInnerHTML(innerHTML){
+    	var strs = innerHTML;
+    	var index = strs.indexOf('R-');
+    	if(index==0){
+		
+    		
+
+    		document.getElementById('mesga').innerHTML +='<li><span class="orange">$Received Msg</span>:<span class="blue">'+ innerHTML.slice(2) + '</span></li>';
+
+    	}else{
+    		
+			  
+		var index = strs.indexOf('S-');
+		if(index==0){
+			
+        document.getElementById('mesga').innerHTML +='<li><span class="purple">$Send Msg</span>:<span class="grey">'+ innerHTML.slice(2) + '</span></li>';
+    	}	
+		}
+		}
+    		
+    
+
+    //关闭连接
+    function closeWebSocket(){
+        websocket.close();
+    }
+
+    //发送消息
+    function send(){
+        var message = document.getElementById('keys').value;
+        websocket.send(message);
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script th:inline="javascript">
+
+
+function connect(){
+	var url = "/connect";
+	var port = $("#portText").val();
+	var rate = $("#rateText").val();
+	if(port=='' || port==null || port== ' ' ||
+			rate=='' || rate==null || rate== ' '	
+	){
+		alert("not null");
+		return;
+	}
+	 $.post(url, {'port':port, 'rate':rate});
+}
+
+function sendSerial(){
+
+	var fl = [[${session.Connector}]];
+	if(fl == "None"){
+		alert("Not Connecting")
+	
+	}else{
+		
+		
+		
+		var msgstext = $("#keys").val();
+		
+		if(msgstext=='' || msgstext==null || msgstext== ' '){
+			alert("not null");
+			return;
+		}
+		
+		
+		var data = {
+				'msgs':msgstext
+		};
+		
+	    $.ajax({
+	        url : '/sendSerial',
+	        type : 'GET',
+	        contentType : 'application/json',
+	        dataType : 'json',
+	        data : data,
+	        success : function(result) {
+	       
+	        	
+	        }
+	    });
+		
+		
+	
+	
+	
+	}
+	
+}
+
+</script>
+
+        <hr />
+        <footer>
+            <p>COM - HIRESTA  .V 1.0.0 © 2019 - AU Optronic Co.</p>
+            <font color="blue" id="ajaxh5"></font>
+            <font color="black" id="ajaxM"></font>
+        </footer>
+    </div>
+	
+	
+<script src="../js/classie.js"></script>
+		<script>
+			(function() {
+				// trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
+				if (!String.prototype.trim) {
+					(function() {
+						// Make sure we trim BOM and NBSP
+						var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+						String.prototype.trim = function() {
+							return this.replace(rtrim, '');
+						};
+					})();
+				}
+
+				[].slice.call( document.querySelectorAll( 'input.input__field' ) ).forEach( function( inputEl ) {
+					// in case the input is already filled..
+					if( inputEl.value.trim() !== '' ) {
+						classie.add( inputEl.parentNode, 'input--filled' );
+					}
+
+					// events:
+					inputEl.addEventListener( 'focus', onInputFocus );
+					inputEl.addEventListener( 'blur', onInputBlur );
+				} );
+
+				function onInputFocus( ev ) {
+					classie.add( ev.target.parentNode, 'input--filled' );
+				}
+
+				function onInputBlur( ev ) {
+					if( ev.target.value.trim() === '' ) {
+						classie.remove( ev.target.parentNode, 'input--filled' );
+					}
+				}
+			})();
+		</script>
+    <div id="modal"  class="modal">
+        <div class="modal-dialog animated">
+            <div class="modal-content">
+                <form action="/connect"  class="form-horizontal" method="post">
+                    <div class="modal-header">
+                        <strong>Connect Setting</strong>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="form-group">
+						
+						
+						 <label for="dummyText" class="control-label col-xs-4">Now Port:</label>
+                            <div class="input-group col-xs-7">
+                                <input type="text"   th:value="${session.Connector}" class="form-control" />
+                            </div>
+                            
+                             <label for="dummyText" class="control-label col-xs-4">Found Port:</label>
+                            <div class="input-group col-xs-7">
+                                <input type="text"   th:value="${session.Ports}" class="form-control" />
+                            </div>
+						
+                            <label for="dummyText" class="control-label col-xs-4">Com Port:</label>
+                            <div class="input-group col-xs-7">
+                                <input type="text" name="port" id="portText" class="form-control" />
+                            </div>
+							 <label for="dummyText" class="control-label col-xs-4">Baud Rate:</label>
+                            <div class="input-group col-xs-7">
+                                <input type="text" name="rate" id="rateText" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-default" type="button" onclick="modal.close();">Cancel</button>
+                        <button class="btn btn-primary" type="submit" onclick="modal.close();">Connect</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    
+</body></html>
